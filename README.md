@@ -14,9 +14,9 @@ Run `cdk deploy`. And you'll see outputs like below.
 
 Next, run commands following the outputs.
 
-1. aws deploy register-on-premises-instance ~
-1. aws deploy add-tags-to-on-premises-instances ~
-1. aws codepipeline start-pipeline-execution ~
+1. `aws deploy register-on-premises-instance ~`
+1. `aws deploy add-tags-to-on-premises-instances ~`
+1. `aws codepipeline start-pipeline-execution ~`
 
 Finally, access the URL on browser. You'll see deployed page.
 
