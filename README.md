@@ -22,6 +22,7 @@ Finally, access the URL on browser. You'll see deployed page.
 
 # Reference
 https://aws.amazon.com/jp/blogs/compute/using-aws-codedeploy-and-aws-codepipeline-to-deploy-applications-to-amazon-lightsail/
+
 https://github.com/mikegcoleman/codedeploygithubdemo
 
 This repo includes above source code as `CodeDeployDemo.zip`. Thanks.
