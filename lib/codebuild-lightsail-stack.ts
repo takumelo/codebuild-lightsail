@@ -95,10 +95,9 @@ sudo ./install auto
       ),
     });
     
-    // TODO: assign main to the default branch
     const repo = new codecommit.Repository(this, 'Repo', {
       repositoryName: 'DeployDemo',
-      code: codecommit.Code.fromZipFile(path.join(__dirname, '../CodeDeployDemo.zip'), 'main'),
+      code: codecommit.Code.fromDirectory(path.join(__dirname, 'gatsby-site/'), 'main'),
     });
     const deployPipelineName = 'TestPipeline';
     const pipeline = new codepipeline.Pipeline(this, 'Pipeline', {
