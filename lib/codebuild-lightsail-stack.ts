@@ -5,6 +5,7 @@ import { aws_s3 as s3 } from 'aws-cdk-lib';
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { aws_iam as iam } from 'aws-cdk-lib';
 import { aws_lightsail as lightsail } from 'aws-cdk-lib';
+import { aws_codebuild as codebuild } from 'aws-cdk-lib';
 import { aws_codedeploy as codedeploy } from 'aws-cdk-lib';
 import { aws_codepipeline as codepipeline } from 'aws-cdk-lib';
 import { aws_codepipeline_actions as codepipeline_actions } from 'aws-cdk-lib'
@@ -115,9 +116,24 @@ sudo ./install auto
       stageName: 'Source',
       actions: [sourceAction],
     });
+
+    const buildOutput = new codepipeline.Artifact('BuildOutput');
+    const codeBuildProject = new codebuild.PipelineProject(this, 'CodeBuildProject');
+    const buildAction = new codepipeline_actions.CodeBuildAction({
+      actionName: 'CodeBuild',
+      project: codeBuildProject,
+      input: sourceOutput,
+      outputs: [buildOutput],
+      runOrder: 1,
+    })
+    pipeline.addStage({
+      stageName: 'Build',
+      actions: [buildAction],
+    })
+
     const deployAction = new codepipeline_actions.CodeDeployServerDeployAction({
       actionName: 'CodeDeploy',
-      input: sourceOutput,
+      input: buildOutput,
       deploymentGroup,
     });
     pipeline.addStage({
