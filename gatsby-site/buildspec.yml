@@ -1,13 +1,12 @@
 version: 0.2
 phases:
-    # install:
-    #     commands:
-    #         - touch .npmignore
-    #         - npm install --arch=x64 --platform=linux sharp
-    #         - npm install -g gatsby
-    # pre_build:
-    #     commands:
-    #         - npm install
+    install:
+        commands:
+            - touch .npmignore
+            - npm install -g gatsby
+    pre_build:
+        commands:
+            - npm install
     build:
         commands:
             - npm run build
