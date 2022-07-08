@@ -20,8 +20,10 @@ Next, run commands following the outputs.
 
 Finally, access the URL on browser. You'll see deployed page.
 
+# Destloy
+
+1. `aws deploy deregister --instance-name cdk-lightsail --region ap-northeast-1`
+1. `aws deploy remove-tags-from-on-premises-instances --tags Key=Name,Value=CodeLightsailTest --instance-names cdk-lightsail`
+
 # Reference
 - https://aws.amazon.com/jp/blogs/compute/using-aws-codedeploy-and-aws-codepipeline-to-deploy-applications-to-amazon-lightsail/
-- https://github.com/mikegcoleman/codedeploygithubdemo
-
-This repo includes above source code as `CodeDeployDemo.zip`. Thanks.
