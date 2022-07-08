@@ -97,7 +97,7 @@ sudo ./install auto
     
     const repo = new codecommit.Repository(this, 'Repo', {
       repositoryName: 'DeployDemo',
-      code: codecommit.Code.fromDirectory(path.join(__dirname, 'gatsby-site/'), 'main'),
+      code: codecommit.Code.fromDirectory(path.join(__dirname, '../gatsby-site/'), 'main'),
     });
     const deployPipelineName = 'TestPipeline';
     const pipeline = new codepipeline.Pipeline(this, 'Pipeline', {
