@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  gatsby-lightsail:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gatsby-lightsail
+    volumes:
+      - ./:/codebuild-lightsail
+    tty: true
+    stdin_open: true
