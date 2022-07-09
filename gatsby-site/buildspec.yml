@@ -3,13 +3,13 @@ phases:
     install:
         commands:
             - touch .npmignore
-            - sudo npm install -g gatsby
+            - npm install -g gatsby --unsafe-perm
     pre_build:
         commands:
-            - sudo npm install
+            - npm install --unsafe-perm
     build:
         commands:
-            - sudo npm run build
+            - npm run build
             - mkdir artifacts
             - mv public artifacts/
             - mv appspec.yml artifacts/

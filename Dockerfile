@@ -1,3 +1,3 @@
-FROM node:14-alpine
+FROM amazon/aws-codebuild-local:latest
 
-RUN apk update && mkdir -p /codebuild-lightsail
+RUN mkdir -p /codebuild-lightsail
