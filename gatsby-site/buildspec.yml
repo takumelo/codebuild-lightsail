@@ -3,10 +3,10 @@ phases:
     install:
         commands:
             - touch .npmignore
-            - npm install -g gatsby --unsafe-perm
+            - npm install gatsby
     pre_build:
         commands:
-            - npm install --unsafe-perm
+            - npm install
     build:
         commands:
             - npm run build
