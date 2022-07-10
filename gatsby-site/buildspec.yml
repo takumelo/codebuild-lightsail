@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+    install:
+        commands:
+            - touch .npmignore
+            - npm install gatsby
+    pre_build:
+        commands:
+            - npm install
+    build:
+        commands:
+            - npm run build
+            - mkdir artifacts
+            - mv public artifacts/
+            - mv appspec.yml artifacts/
+            - mv scripts artifacts/
+artifacts:
+    base-directory: artifacts
+    files:
+        - '**/*'

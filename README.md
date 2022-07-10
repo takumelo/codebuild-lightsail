@@ -1,10 +1,10 @@
-# codebuild-lightsail
+# gatsby demo on lightsail deployed by codepipeline
 
-demo for AWS Cloud Development Kit
+gatsby demo for AWS Cloud Development Kit
 
 This constructs below.
 
-![codebuild_lightsail_cdk](https://user-images.githubusercontent.com/50583728/164890057-b58fad1f-826e-4c45-8c60-f1f94019515d.png)
+![codebuild_lightsail_cdk](https://user-images.githubusercontent.com/50583728/178142356-7874a7d5-aadf-490e-9254-fc2ff0994f2a.png)
 
 # Deploy
 
@@ -20,8 +20,10 @@ Next, run commands following the outputs.
 
 Finally, access the URL on browser. You'll see deployed page.
 
+# Destroy
+
+1. `aws deploy deregister --instance-name cdk-lightsail --region ap-northeast-1`
+1. `aws deploy remove-tags-from-on-premises-instances --tags Key=Name,Value=CodeLightsailTest --instance-names cdk-lightsail`
+
 # Reference
 - https://aws.amazon.com/jp/blogs/compute/using-aws-codedeploy-and-aws-codepipeline-to-deploy-applications-to-amazon-lightsail/
-- https://github.com/mikegcoleman/codedeploygithubdemo
-
-This repo includes above source code as `CodeDeployDemo.zip`. Thanks.
