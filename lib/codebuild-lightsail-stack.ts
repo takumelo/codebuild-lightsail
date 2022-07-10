@@ -80,7 +80,7 @@ sudo ./install auto
 `,
     });
 
-    const deployAppName = 'CodeLightsailTest';
+    const deployAppName = 'GatsbyDemo';
     const deploymentGroup = new codedeploy.ServerDeploymentGroup(this, 'CodeDeployGroup', {
       role: deployRole,
       application: new codedeploy.ServerApplication(this, 'CodeDeployApplication', {
@@ -99,7 +99,7 @@ sudo ./install auto
       repositoryName: 'DeployDemo',
       code: codecommit.Code.fromDirectory(path.join(__dirname, '../gatsby-site/'), 'main'),
     });
-    const deployPipelineName = 'TestPipeline';
+    const deployPipelineName = 'GatsbyPipeline';
     const pipeline = new codepipeline.Pipeline(this, 'Pipeline', {
       pipelineName: deployPipelineName,
       artifactBucket: sourceBucket,
