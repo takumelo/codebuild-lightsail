@@ -117,7 +117,12 @@ sudo ./install auto
     });
 
     const buildOutput = new codepipeline.Artifact('BuildOutput');
-    const codeBuildProject = new codebuild.PipelineProject(this, 'CodeBuildProject');
+    const codeBuildProject = new codebuild.PipelineProject(this, 'CodeBuildProject', {
+      environment: {
+        buildImage: codebuild.LinuxBuildImage.STANDARD_5_0,
+        computeType: codebuild.ComputeType.SMALL,
+      }
+    });
     const buildAction = new codepipeline_actions.CodeBuildAction({
       actionName: 'CodeBuild',
       project: codeBuildProject,
